@@ -10,7 +10,7 @@ authors:
     # orcid: "https://orcid.org/0000-0000-0000-0000"
 version: 1.0.0
 license: MIT
-repository-code: "https://github.com/YOUR-GITHUB-USERNAME/fear-dilution-hysteresis"
+repository-code: "https://github.com/Soutrick93/fear-dilution-hysteresis"
 keywords:
   - ecology of fear
   - Allee effect
