@@ -2,8 +2,7 @@
 
 Code for the paper
 
-> S. Das, *Fear diluted in groups: an emergent Allee effect, a sharp threshold for hysteresis, and the reversal of a
-> fear-driven trophic cascade*, submitted to Qualitative Theory of Dynamical Systems (2026).
+> S. Das, *Fear diluted in groups: emergent Allee effect and hysteresis in a predator-prey model*, submitted to Qualitative Theory of Dynamical Systems (2026).
 
 Every number and figure in the paper is produced by a script in this repository. `LOGBOOK.md` is the dated record of
 every computation, result and correction.
@@ -90,12 +89,12 @@ Quick test that everything works (about 10 minutes):
 | Job | Script | Used in the paper for | Time |
 | --- | --- | --- | --- |
 | symbolic | `qtds_fear/symbolic.py` | symbolic verification of scaling, boundedness, the cubic, c* | 1-3 min |
-| step5, step5b | `analysis/step5_*.py` | number of coexistence equilibria (theorem and random test) | 3-6 min |
-| step6 | `analysis/step6_transcritical_fold.py` | threshold c*, fold curve, Sotomayor checks | 3-6 min |
+| step5, step5b, step5c | `analysis/step5*_*.py` | number and type of coexistence equilibria (theorem and random tests) | 3-6 min |
+| step6, step6b | `analysis/step6*_*.py` | threshold c*, fold curve, Sotomayor checks, opening of the window | 3-6 min |
 | step7 | `analysis/step7_hopf.py` | Hopf points | 1-2 min |
 | step8a | `analysis/step8a_bt.py` | Bogdanov-Takens curve | 1-2 min |
-| step8 | `analysis/step8_global.py` | basins (its fate-bisection homoclinic search is superseded by step8e) | 15-30 min |
-| step8c, step8d | `analysis/step8c_*.py`, `step8d_*.py` | global convergence test (support for the conjecture) | up to 25 min |
+| step8 | `analysis/step8_global.py` | basin fractions (supplementary) | 5-15 min |
+| step8c, step8d | `analysis/step8c_*.py`, `step8d_*.py` | global convergence test: 60 parameter sets x 5 initial conditions | up to 50 min |
 | step8e, step8f | `analysis/step8e_*.py`, `step8f_*.py` | canard threshold f_c and its diagnostics | 10-20 min |
 | step9 | `analysis/step9_slowfast.py` | what a 28-day experiment measures (slow-fast) | 3-6 min |
 | step10 | `analysis/step10_chain3d.py` | appendix: living carnivore population | 15-30 min |

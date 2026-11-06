@@ -388,3 +388,17 @@ Checklist: manuscript/REVIEW_CHECKLIST.md. Only author items remain.
 - qtds_fear.bifurcation.opening_coefficient(p); Fig 2e dashed lines = exact C (c-c*)^2 per s0 (was a hand-placed slope-2 guide).
 - Figures copied into manuscript/figures so the LaTeX zip is self-contained. Table 1 gained two rows (dynamic hysteresis, D_c).
 - 2026-11-05: Table 1 (status) removed; replaced by one sentence. run_all.py now runs Figures 1-9, uses 4 workers (QTDS_WORKERS), saves run_log after every job, supports --resume.
+## 2026-11-06 | Final full run (workstation), audit
+- 27/30 jobs OK. All result files reproduce the previous runs to < 1e-6 relative (only differences: eigenvalue noise at
+  the BT double zero, run times, f_c spread 5.4e-10 vs 4.6e-10).
+- Failed: step8 (MemoryError: LSODA stored every step over T = 60000; the fate-bisection homoclinic search is removed,
+  superseded by step8e); step8c/8d failed only because they read step8.json. Fixed: end-point-only integration
+  (t_eval=[T]) in log variables; step8c writes results/step8c_global_test.json; step8d reads it. To be rerun.
+- New reproducible scripts for numbers that were computed in-session: step5c_type_check.py (sign det J = sign P'(u) at
+  9 733 equilibria of 2e4 sets; lower state a saddle in all 1 191 two-equilibrium cases; manuscript updated from the
+  earlier 10 544 / 3 356) and step6b_window_opening.py (C = 0.575, 1.526, 4.900 for s0 = 0.5, 1, 2; ratios converge).
+- Every number in the manuscript checked against the final results; corrected: f_c spread (5.4e-10), recovery range
+  (0.15, matching Table 2), type-check counts. Fig 4 caption completed (ramp durations, dashed lines).
+- Figures: all equation-based values verified (Allee thresholds in Fig 1b; equilibria in Fig 3; c* point; canard
+  diamonds; BT b = 0 points; 3-D windows). Layout fixes: Fig 6b inset ticks (f_c, f_H), Fig 8 panel spacing.
+- 2026-11-06: step8c rerun (workstation): 60 parameter sets x 5 initial conditions = 300 trajectories, 0 failures; confirms the global-convergence sentence. All checks closed.

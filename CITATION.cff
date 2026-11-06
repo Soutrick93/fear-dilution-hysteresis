@@ -1,8 +1,8 @@
 # Citation metadata, read by GitHub ("Cite this repository") and Zenodo.
-# EDIT BEFORE THE FIRST RELEASE: add your ORCID, and the DOI once Zenodo has issued one.
+# Add your ORCID below, and the DOI once Zenodo has issued one.
 cff-version: 1.2.0
 message: "If you use this code, please cite it as below."
-title: "fear-dilution-hysteresis: code for 'Fear diluted in groups: an emergent Allee effect, a sharp threshold for hysteresis, and the reversal of a fear-driven trophic cascade'"
+title: "fear-dilution-hysteresis: code for 'Fear diluted in groups: emergent Allee effect and hysteresis in a predator-prey model'"
 authors:
   - family-names: Das
     given-names: Soutrick
