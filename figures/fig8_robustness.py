@@ -28,7 +28,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 def main():
     S.apply()
     fig = plt.figure(figsize=(S.DOUBLE, 2.5))
-    gs = fig.add_gridspec(1, 3, width_ratios=[1.1, 0.9, 1.1], wspace=0.75)
+    gs = fig.add_gridspec(1, 3, width_ratios=[1.1, 0.9, 1.1], wspace=1.0)
     a = fig.add_subplot(gs[0]); b = fig.add_subplot(gs[1]); c = fig.add_subplot(gs[2])
     # a
     fp = ROOT / 'results' / 'step13_calibration.json'

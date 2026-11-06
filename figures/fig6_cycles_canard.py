@@ -77,6 +77,7 @@ def main():
     ins = b.inset_axes([0.12, 0.1, 0.4, 0.36])
     ins.plot(fc + dfs, amps, 'o-', ms=2, color=S.FEAR, lw=0.9); ins.axvline(fc, color=S.INK2, lw=0.6, ls=(0, (2, 2)))
     ins.axvline(fH, color=S.INK2, lw=0.6); ins.tick_params(labelsize=7)
+    ins.set_xticks([fc, fH]); ins.set_xticklabels(['$f_c$', '$f_H$']); ins.set_yticks([0.1, 0.2])
     S.panel_label(b, 'b', x=-0.25)
     # c: time series either side
     for sign, col in ((+1, S.BLUE), (-1, S.RED)):
