@@ -1,0 +1,5 @@
+# Python 3.10 to 3.13. Install with:  pip install -r requirements.txt
+numpy>=1.26
+scipy>=1.11
+sympy>=1.12
+matplotlib>=3.8

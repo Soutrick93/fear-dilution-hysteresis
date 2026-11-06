@@ -1,0 +1,20 @@
+# Citation metadata, read by GitHub ("Cite this repository") and Zenodo.
+# EDIT BEFORE THE FIRST RELEASE: add your ORCID, and the DOI once Zenodo has issued one.
+cff-version: 1.2.0
+message: "If you use this code, please cite it as below."
+title: "fear-dilution-hysteresis: code for 'Fear diluted in groups: an emergent Allee effect, a sharp threshold for hysteresis, and the reversal of a fear-driven trophic cascade'"
+authors:
+  - family-names: Das
+    given-names: Soutrick
+    affiliation: "School of Computer Science and Artificial Intelligence, SR University, Warangal, India"
+    # orcid: "https://orcid.org/0000-0000-0000-0000"
+version: 1.0.0
+license: MIT
+repository-code: "https://github.com/YOUR-GITHUB-USERNAME/fear-dilution-hysteresis"
+keywords:
+  - ecology of fear
+  - Allee effect
+  - backward bifurcation
+  - hysteresis
+  - predator-prey model
+  - bifurcation analysis
