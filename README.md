@@ -4,8 +4,10 @@ Code for the paper
 
 > S. Das, *Fear diluted in groups: emergent Allee effect and hysteresis in a predator-prey model*, submitted to Qualitative Theory of Dynamical Systems (2026).
 
-Every number and figure in the paper is produced by a script in this repository. `LOGBOOK.md` is the dated record of
-every computation, result and correction.
+Every number and figure in the paper is produced by a script in this repository. The repository contains **code only**:
+no results or figures are stored here. Running `python run_all.py` regenerates all of them on your own computer (see
+"Run everything" below). All random surveys use fixed seeds, so a fresh run reproduces the numbers in the paper.
+`LOGBOOK.md` is the dated record of every computation, result and correction.
 
 ## The model
 
@@ -48,9 +50,10 @@ form.
 
     python run_all.py
 
-This runs every analysis step in order, then draws Figures 1-9. Progress and expected times are printed. Outputs:
+This runs every analysis step in order, then draws Figures 1-9. Progress and expected times are printed. The output
+folders below do not exist in the repository; they are created by the run:
 
-| Folder | Content |
+| Folder (created by the run) | Content |
 | --- | --- |
 | `results/` | one JSON file per step (all numbers quoted in the paper) |
 | `results/logs/` | screen output and errors of every job; `results/run_log.json` lists which jobs succeeded |
@@ -62,7 +65,8 @@ Other ways to run:
 
     python run_all.py --resume          # after a crash or Ctrl-C: skips jobs that already finished OK
     python run_all.py step6 fig2        # only the named jobs
-    python make_figures.py              # only the figures (needs the results of the analysis steps)
+    python make_figures.py              # only the figures; run the analysis steps first, because
+                                        # Figures 6-9 read their data from results/
     python make_figures.py 4 9          # only Figures 4 and 9
     python analysis/step15_dynamics.py A C    # one script, only parts A and C
 
@@ -103,6 +107,7 @@ Quick test that everything works (about 10 minutes):
 | step13 | `analysis/step13_calibration_robustness.py` | robustness to calibration | < 2 min |
 | step14 | `analysis/step14_checks.py` | ramps, single window, stability of the upper state, BT zeros, parity | 10-20 min |
 | step15 | `analysis/step15_dynamics.py` | ramp-rate scaling, sensitivity, critical boost, Hopf and BT scans, error on f_c | 1-2 h |
+| (separate) | `analysis/verify_theory.py` | independent SymPy check of every formula in the paper (prints PASS/FAIL) | ~1 min |
 | quicklook | `analysis/quicklook.py` | diagnostic plots | < 1 min |
 | fig1-fig9 | `figures/fig*_*.py` | Figures 1-9 | 30-70 min |
 
@@ -117,8 +122,8 @@ Quick test that everything works (about 10 minutes):
       simulate.py, slowfast.py, chain3d.py   time integration, slow-fast tools, 3-D extension
       symbolic.py       SymPy derivations (writes results/symbolic_report.md)
       style.py, figtools.py   figure style and shared plotting tools
-    analysis/         one script per analysis step
-    figures/          one script per figure
+    analysis/         one script per analysis step (each writes its numbers to results/, created on first run)
+    figures/          one script per figure (each writes figures/pdf/ and figures/png/, created on first run)
     run_all.py        runs everything in order
     make_figures.py   runs the figure scripts only
     LOGBOOK.md        dated record of every computation
@@ -129,6 +134,9 @@ Quick test that everything works (about 10 minutes):
 - Long and stiff integrations use logarithmic variables (ln x, ln y), which keeps densities positive near x = 0.
 - Slow ramps include a small mesopredator immigration term (1e-7 unless stated), so that recovery times are finite.
 - Results do not depend on the number of workers; only the run time does.
+- Reproducibility was checked by repeating the full run: all result files agreed with the previous run to better than
+  one part in a million; the only differences were run times and rounding noise in near-zero eigenvalues.
+- Output folders are listed in `.gitignore`, so a local run never adds results or figures to the repository by accident.
 
 ## Troubleshooting
 
@@ -136,6 +144,7 @@ Quick test that everything works (about 10 minutes):
 | --- | --- |
 | `BrokenProcessPool` | memory ran out: set `QTDS_WORKERS=2` and run `python run_all.py --resume` |
 | a job FAILED | read `results/logs/<job>.err.txt`, then `python run_all.py --resume` |
+| `FileNotFoundError: results/...` when drawing a figure | run the analysis first: `python run_all.py` (or the step named in the figure script's header) |
 | `ModuleNotFoundError` | the virtual environment is not active: run `venv\Scripts\activate` (Windows) or `source venv/bin/activate` |
 | fonts look different | install Arial; otherwise Liberation Sans or DejaVu Sans is used (text stays editable) |
 
