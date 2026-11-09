@@ -65,7 +65,9 @@ def main():
         eq = interior(P.with_(c=float(c), f=f - 1e-9)); yF.append(np.mean([e[1] for e in eq]) if eq else 0)
     a.plot(ff, np.log10(cc), yF, color=S.BLUE, lw=2.0)
     a.scatter([fT], [np.log10(cs)], [0], s=28, color=S.INK, depthshade=False, zorder=10)
-    a.set_xlabel('fear  f'); a.set_ylabel('log$_{10}$ c'); a.set_zlabel('raccoons  y*', labelpad=2)
+    a.set_xlabel('fear  f'); a.set_ylabel('log$_{10}$ c'); a.set_zlabel('')
+    # z label drawn as 2-D text: 3-D axis labels can fall outside the saved bounding box with some matplotlib versions
+    a.text2D(-0.17, 0.55, 'raccoons  y*', rotation=90, transform=a.transAxes, va='center', ha='center', fontsize=9.5)
     a.view_init(elev=24, azim=-128); a.set_box_aspect((1.2, 1.0, 0.7))
     for ax_ in (a.xaxis, a.yaxis, a.zaxis):
         ax_.pane.set_facecolor((1, 1, 1, 0)); ax_.pane.set_edgecolor(S.GRID)

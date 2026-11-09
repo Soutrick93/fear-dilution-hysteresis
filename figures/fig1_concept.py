@@ -88,7 +88,7 @@ def panel_b(ax):
                 yA = ys[k[0]]
                 ax.plot([yA], [0], 'o', ms=4, mfc='white', mec=col, mew=1.1, zorder=5)
     ax.axhline(0, color=S.INK2, lw=0.5)
-    ax.set_xlabel('raccoon density  y'); ax.set_ylabel(r'raccoon per-capita growth  $(y\'/y)/\delta$')
+    ax.set_xlabel('raccoon density  y'); ax.set_ylabel(r'raccoon per-capita growth  $(\dot{y}/y)/\delta$')
     ax.set_xlim(0, 3); ax.set_ylim(-0.1, 0.28)
     ax.legend(loc='center right', bbox_to_anchor=(1.02, 0.6), handlelength=1.6, fontsize=7.5)
     ax.text(2.95, -0.098, 'solid: fear cost shared (c = 5);  dashed: not shared (c = 0)', fontsize=6.5,
