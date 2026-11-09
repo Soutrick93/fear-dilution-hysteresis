@@ -2,7 +2,7 @@
 
 Code for the paper
 
-> S. Das, *Fear diluted in groups: emergent Allee effect and hysteresis in a predator-prey model*, submitted to Qualitative Theory of Dynamical Systems (2026).
+> S. Das, *Fear diluted in groups: emergent Allee effect and hysteresis in a predator-prey model*.
 
 Every number and figure in the paper is produced by a script in this repository. The repository contains **code only**:
 no results or figures are stored here. Running `python run_all.py` regenerates all of them on your own computer (see
