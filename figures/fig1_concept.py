@@ -2,7 +2,7 @@
 # HOW TO RUN (from the repository folder, virtual environment active):
 #     python figures/fig1_concept.py
 # Also run automatically by:  python run_all.py   (job name: fig1)
-# Output:  figures/pdf/Fig1_concept*.pdf and figures/png/
+# Output:  figures/pdf/Fig1_concept_mechanism_data.pdf and figures/png/
 # Used in the paper for:  Figure 1
 # ----------------------------------------------------------------------------------------------------
 """Figure 1. The question, the mechanism and the data behind the model.
