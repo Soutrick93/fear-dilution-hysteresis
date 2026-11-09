@@ -76,8 +76,8 @@ def save(fig, name):
             for sp in ax.spines.values(): sp.set_visible(False)
             ax.tick_params(colors=AXIS, labelcolor=TICKTXT)
     FIG_PDF.mkdir(parents=True, exist_ok=True); FIG_PNG.mkdir(parents=True, exist_ok=True)
-    fig.savefig(FIG_PDF / f'{name}.pdf', bbox_inches='tight', pad_inches=0.02)
-    fig.savefig(FIG_PNG / f'{name}.png', bbox_inches='tight', pad_inches=0.02, dpi=300)
+    fig.savefig(FIG_PDF / f'{name}.pdf', bbox_inches='tight', pad_inches=0.08)  # margin: labels ending in subscripts are not clipped
+    fig.savefig(FIG_PNG / f'{name}.png', bbox_inches='tight', pad_inches=0.08, dpi=300)
     plt.close(fig)
     return FIG_PDF / f'{name}.pdf'
 
